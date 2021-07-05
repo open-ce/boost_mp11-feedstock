@@ -11,7 +11,7 @@ source:
   sha256: f0df3ae138687154382361019fa43298821b50c80e7bd60dd7bb30de7819e204
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -26,7 +26,6 @@ requirements:
 test:
   commands:
     - test -f $PREFIX/include/boost/mp11.hpp  # [unix]
-    - if not exist %LIBRARY_INC%\\boost\\mp11.hpp exit 1  # [win]
 
 about:
   home: https://github.com/boostorg/mp11

@@ -25,7 +25,7 @@ requirements:
 
 test:
   commands:
-    - test -f $PREFIX/include/boost/mp11.hpp  # [linix]
+    - test -f $PREFIX/include/boost/mp11.hpp  # [linux]
 
 about:
   home: https://github.com/boostorg/mp11

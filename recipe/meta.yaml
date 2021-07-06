@@ -17,15 +17,15 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cmake
-    - ninja
+    - cmake {{ cmake }}
+    - ninja {{ ninja }}
   run_constrained:
     # Cannot be installed at the same time as boost-cpp as it clobbers the mp11 headers
     - boost-cpp <0a0
 
 test:
   commands:
-    - test -f $PREFIX/include/boost/mp11.hpp  # [unix]
+    - test -f $PREFIX/include/boost/mp11.hpp  # [linix]
 
 about:
   home: https://github.com/boostorg/mp11
@@ -35,4 +35,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - xhochy
+    - open-ce/open-ce-dev-team

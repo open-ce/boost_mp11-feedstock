@@ -11,22 +11,28 @@ source:
   sha256: f0df3ae138687154382361019fa43298821b50c80e7bd60dd7bb30de7819e204
 
 build:
-  number: 0
+  number: 1
 
 requirements:
+  host:
+    # Use pins to control cos6/cos7 match
+    - libgcc-ng  {{ libgcc }}
+    - libstdcxx-ng  {{ libstdcxx }}
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cmake
-    - ninja
+    - cmake {{ cmake }}
+    - ninja {{ ninja }}
+    # Use pins to control cos6/cos7 match
+    - libgcc-ng  {{ libgcc }}
+    - libstdcxx-ng  {{ libstdcxx }}
   run_constrained:
     # Cannot be installed at the same time as boost-cpp as it clobbers the mp11 headers
     - boost-cpp <0a0
 
 test:
   commands:
-    - test -f $PREFIX/include/boost/mp11.hpp  # [unix]
-    - if not exist %LIBRARY_INC%\\boost\\mp11.hpp exit 1  # [win]
+    - test -f $PREFIX/include/boost/mp11.hpp  # [linux]
 
 about:
   home: https://github.com/boostorg/mp11
@@ -36,4 +42,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - xhochy
+    - open-ce/open-ce-dev-team

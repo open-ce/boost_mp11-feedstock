@@ -14,11 +14,18 @@ build:
   number: 1
 
 requirements:
+  host:
+    # Use pins to control cos6/cos7 match
+    - libgcc-ng  {{ libgcc }}
+    - libstdcxx-ng  {{ libstdcxx }}
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake {{ cmake }}
     - ninja {{ ninja }}
+    # Use pins to control cos6/cos7 match
+    - libgcc-ng  {{ libgcc }}
+    - libstdcxx-ng  {{ libstdcxx }}
   run_constrained:
     # Cannot be installed at the same time as boost-cpp as it clobbers the mp11 headers
     - boost-cpp <0a0

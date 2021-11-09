@@ -7,8 +7,10 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/boostorg/mp11/archive/refs/tags/boost-{{ version }}.tar.gz
-  sha256: f0df3ae138687154382361019fa43298821b50c80e7bd60dd7bb30de7819e204
+  git_url: https://github.com/boostorg/mp11/
+  git_rev: boost-1.76.0
+  patches:
+    - 0001-Disabled-tests.patch
 
 build:
   number: 2

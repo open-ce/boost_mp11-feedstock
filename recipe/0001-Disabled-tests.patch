@@ -1,0 +1,25 @@
+From 2bbd6aa437810ac9786ad3208df5ae2df474f75f Mon Sep 17 00:00:00 2001
+From: Nishidha Panpaliya <npanpa23@in.ibm.com>
+Date: Tue, 9 Nov 2021 07:14:22 +0000
+Subject: [PATCH] Disabled tests
+
+---
+ test/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index cab19b6..003cf7a 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -3,7 +3,7 @@
+ # See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt
+ 
+ include(BoostTestJamfile OPTIONAL RESULT_VARIABLE HAVE_BOOST_TEST)
+-
++set(HAVE_BOOST_TEST OFF)
+ if(HAVE_BOOST_TEST)
+ 
+ boost_test_jamfile(FILE Jamfile LINK_LIBRARIES Boost::mp11 Boost::core)
+-- 
+2.32.0
+

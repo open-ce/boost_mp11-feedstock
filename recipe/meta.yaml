@@ -13,7 +13,7 @@ source:
     - 0001-Disabled-tests.patch
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   host:
@@ -28,9 +28,11 @@ requirements:
     # Use pins to control cos6/cos7 match
     - libgcc-ng  {{ libgcc }}                     # [x86_64 and c_compiler_version == "7.2.*"]
     - libstdcxx-ng  {{ libstdcxx }}               # [x86_64 and c_compiler_version == "7.2.*"]
-  run_constrained:
-    # Cannot be installed at the same time as boost-cpp as it clobbers the mp11 headers
-    - boost-cpp <0a0
+#  To create a single env using OpenCE packages we require boost-cpp to be installed alongside boost_mp11.
+#  Hence disabling this restriction.
+#  run_constrained:
+#    # Cannot be installed at the same time as boost-cpp as it clobbers the mp11 headers
+#    - boost-cpp <0a0
 
 test:
   commands:
